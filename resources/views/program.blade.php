@@ -40,16 +40,16 @@
                     </div>
                 </div>
                 <div class="row">
-                    @foreach ($programs as $program)
+                    @forelse ($programs as $program)
                         <div class="col-lg-4">
                             <div class="properties properties2 mb-30">
                                 <div class="properties__card"
                                     style="
-                                        background-image: url('{{ $program->image ? (filter_var($program->image->path, FILTER_VALIDATE_URL) ? $program->image->path : asset('storage/' . $program->image->path)) : 'path/to/default/image.jpg' }}'); 
-                                        background-size: cover; 
-                                        background-position: center; 
-                                        height: 250px; 
-                                        border-radius: 8px;">
+                    background-image: url('{{ $program->image ? (filter_var($program->image->path, FILTER_VALIDATE_URL) ? $program->image->path : asset('storage/' . $program->image->path)) : 'path/to/default/image.jpg' }}'); 
+                    background-size: cover; 
+                    background-position: center; 
+                    height: 250px; 
+                    border-radius: 8px;">
                                     <div class="properties__caption"
                                         style="background-color: rgba(0, 0, 0, 0.5); padding: 15px;">
                                         <h3 style="color: #fff;">
@@ -60,7 +60,11 @@
                                 </div>
                             </div>
                         </div>
-                    @endforeach
+                    @empty
+                        <div class="col-12">
+                            <p class="text-center">No programs available at the moment.</p>
+                        </div>
+                    @endforelse
                 </div>
             </div>
         </div>

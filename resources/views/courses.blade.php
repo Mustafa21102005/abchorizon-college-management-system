@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    @foreach ($courses as $course)
+                    @forelse ($courses as $course)
                         <div class="col-lg-4">
                             <div class="properties properties2 mb-30">
                                 <div class="properties__card">
@@ -59,8 +59,11 @@
                                 </div>
                             </div>
                         </div>
-                    @endforeach
-
+                    @empty
+                        <div class="col-12">
+                            <p class="text-center">No courses available at the moment.</p>
+                        </div>
+                    @endforelse
                 </div>
             </div>
         </div>

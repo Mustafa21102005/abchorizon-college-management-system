@@ -17,7 +17,7 @@ class ImageFactory extends Factory
     public function definition(): array
     {
         return [
-            'path' => $this->faker->imageUrl(640, 480),
+            'path' => 'https://placehold.co/600x400',
             'imageable_id' => null,
             'imageable_type' => null,
         ];

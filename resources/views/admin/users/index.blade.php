@@ -49,6 +49,12 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @if ($users->isEmpty())
+                                <tr>
+                                    <td colspan="4" class="border border-gray-700 px-4 py-2 text-center">No users
+                                        found.</td>
+                                </tr>
+                            @endif
                             @foreach ($users as $user)
                                 <tr>
                                     <td class="border border-gray-700 px-4 py-2">{{ $user->name }}</td>
